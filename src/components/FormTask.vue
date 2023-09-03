@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="box lateral">
     <div class="columns">
       <div class="column is-8" role="form" aria-label="Formulário para Criação de uma nova tarefa">
         <input type="text" class="input" placeholder="Qual tarefa você deseja iniciar?" />
@@ -20,3 +20,9 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+  .lateral {
+    background-color: aliceblue;
+  }
+</style>
