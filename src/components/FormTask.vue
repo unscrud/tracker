@@ -1,3 +1,13 @@
+<script setup>
+const iniciar = ()=>{
+  console.log('iniciou...')
+}
+
+const finalizar = ()=>{
+  console.log('finalizou...')
+}
+</script>
+
 <template>
   <div class="box lateral">
     <div class="columns">
@@ -9,11 +19,11 @@
           <section>
             <strong>00:00:00</strong>
           </section>
-          <button class="button">
+          <button class="button" @click="iniciar">
             <span class="icon"><i class="fas fa-play"></i></span>
             <span>play</span>
           </button>
-          <button class="button">
+          <button class="button" @click="finalizar">
             <span class="icon"><i class="fas fa-stop"></i></span>
             <span>stop</span>
           </button>
