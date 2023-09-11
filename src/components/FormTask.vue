@@ -1,5 +1,12 @@
 <script setup>
+import {ref} from 'vue'
+
+const tempoEmSegundos = ref(0)
+
 const iniciar = ()=>{
+  setInterval(()=>{
+    this.tempoEmSegundos += 1
+  }, 1000)
   console.log('iniciou...')
 }
 
@@ -17,7 +24,7 @@ const finalizar = ()=>{
       <div class="column">
         <div class="is-flex is-align-items-center is-justify-content-space-between">
           <section>
-            <strong>00:00:00</strong>
+            <strong>{{ tempoEmSegundos }}</strong>
           </section>
           <button class="button" @click="iniciar">
             <span class="icon"><i class="fas fa-play"></i></span>
