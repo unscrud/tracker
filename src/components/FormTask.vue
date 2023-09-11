@@ -1,18 +1,30 @@
 <script lang="ts">
-import {ref} from 'vue'
-
-const tempoEmSegundos = ref(0)
-
-const iniciar = ()=>{
-  setInterval(()=>{
-    this.tempoEmSegundos += 1
-  }, 1000)
-  console.log('iniciou...')
-}
-
-const finalizar = ()=>{
-  console.log('finalizou...')
-}
+import {defineComponent} from 'vue'
+export default defineComponent({
+  name: "FormTask",
+  data(){
+    return {
+      tempoEmSegundos: 0
+    }
+  },
+  computed: {
+    tempoDecorrido () : string {
+      return new Date(this.tempoEmSegundos*1000)
+          .toISOString().substring(11,19)
+    }
+  },
+  methods: {
+    iniciar () {
+      setInterval(()=>{
+        this.tempoEmSegundos += 1
+      }, 1000)
+      console.log('iniciou...')
+    },
+    finalizar () {
+      console.log('finalizou...')
+    }
+  }
+})
 </script>
 
 <template>
@@ -24,7 +36,7 @@ const finalizar = ()=>{
       <div class="column">
         <div class="is-flex is-align-items-center is-justify-content-space-between">
           <section>
-            <strong>{{ tempoEmSegundos }}</strong>
+            <strong>{{ tempoDecorrido }}</strong>
           </section>
           <button class="button" @click="iniciar">
             <span class="icon"><i class="fas fa-play"></i></span>
